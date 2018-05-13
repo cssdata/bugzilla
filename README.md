@@ -34,4 +34,6 @@ docker run -d \
   * The default user/passwd is "bugzilla" / "bugzilla"! So, please don't forget to ssh into the container and change the default passwd
   
   # TODO
-  This is my very first docker. The image is based on ubuntu and gets quite big. There is probably quite some room for optimizations
+  * This is my very first docker. The image is based on ubuntu and gets quite big. There is probably quite some room for optimizations
+  * I just tested the container against our already existing mysql-database. I still have to test a new installation (empty database)
+
