@@ -8,6 +8,7 @@ The container exports 80 and port 22
 
 # VOLUMES
 The container exports 2 volumes
+* /var/www/html/bugzilla
 * /var/log/apache2
 * /home/bugzilla
 
@@ -16,6 +17,7 @@ docker run -d \
 	--name bugzilla \
 	-p 8666:80  \
 	-p 8022:22  \
+	-v /usr/local/share/volumes/bugzilla/bugzilla:/var/www/html/bugzilla \
 	-v /usr/local/share/volumes/bugzilla/log:/var/log/apache2 \
 	-v /usr/local/share/volumes/bugzilla/bugzilla_home:/home/bugzilla \
 	-h bugzilla.example.com \
@@ -32,6 +34,7 @@ docker run -d \
   * If you map port 80 to something else, you have to set the WWW_HOSTNAME accordingly (see above)
   * You have to set a valid TIMEZONE. Otherwise bugzilla will throw errors at you (see above)
   * The default user/passwd is "bugzilla" / "bugzilla"! So, please don't forget to ssh into the container and change the default passwd
+  * Unfortunately bugzilla stores data in the www-tree so you have to mount the "/var/www/html/bugzilla" volume if you don't want to loose data between restarts.
   
   # TODO
   * This is my very first docker. The image is based on ubuntu and gets quite big. There is probably quite some room for optimizations
