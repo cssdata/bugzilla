@@ -7,7 +7,7 @@ The container also creates a user "bugzilla" with passwort "bugzilla". So you ca
 The container exports 80 and port 22
 
 # VOLUMES
-The container exports 2 volumes
+The container exports 3 volumes
 * /var/www/html/bugzilla
 * /var/log/apache2
 * /home/bugzilla
