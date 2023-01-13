@@ -25,6 +25,7 @@ RUN apt-get update \
 	libdatetime-timezone-perl \
 	libemail-sender-perl \
 	libemail-mime-perl \
+	libemail-address-perl \
 	libdbi-perl \
 	libdbd-mysql-perl \
 	libcgi-pm-perl \
@@ -60,7 +61,7 @@ RUN apt-get update \
 
 
 COPY bugzilla.conf startup.sh /app/
-RUN git clone --branch release-4.4-stable https://github.com/bugzilla/bugzilla bugzilla
+RUN git clone --branch 4.4 https://github.com/bugzilla/bugzilla bugzilla
 RUN cd bugzilla; /usr/bin/perl install-module.pl Email::Send
 
 RUN useradd -c "bugzilla user" \
